@@ -15,10 +15,10 @@ function HeroSection() {
   return (
     <div className="py-20 md:py-36 text-center mx-8 ">
       <h1 className="text-3xl font-bold animate-fade-in tracking-tight sm:text-5xl md:text-7xl">
-      Test
+      Your crypto in compliance with Saudi standards
       </h1>
       <p className="mt-6 animate-fade-in text-lg text-muted-foreground max-w-3xl mx-auto">
-      Large Language Model Applications for Arabic 
+      The first platform to bridge global crypto data with Saudi financial regulations. Manage your portfolio, calculate Zakat, and ensure full compliance in one unified dashboard 
       </p>
       <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
         <Link href="/" className={buttonVariants()}>
