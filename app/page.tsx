@@ -1,17 +1,22 @@
 import { Card, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import MaxWidthWrapper from "@/components/ui/common/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export default function Home() {
   return (
-    <MaxWidthWrapper>
-            <BackgroundBeams />
-
+    <main className="relative">
+      <MaxWidthWrapper className="relative z-10">
       <HeroSection />
       <SampleCard />
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+      <BackgroundBeams className="z-0"/>
+
+    </main>
+    
   );
 }
 function HeroSection() {
@@ -28,17 +33,20 @@ function HeroSection() {
         Get Started{" "}
         </Link>
         <Link href="/" className={buttonVariants({variant: "secondary"})}>Demo</Link>
-
       </div>
     </div>
   );
 }
 
+
+
+
+
 function SampleCard() {
   return (
     <div className="py-5">
       <h2 className="text-3xl animate-fade-in font-normal text-center mb-8 sm:text-2xl md:text-3xl">
-      test
+      Why choose us?
       </h2>
       <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-8">
         
@@ -48,7 +56,9 @@ function SampleCard() {
 }
 
 
-import { BackgroundBeams } from "@/components/ui/background-beams";
+
+
+
 
 export function BackgroundBeamsDemo() {
   return (
@@ -71,7 +81,7 @@ export function BackgroundBeamsDemo() {
           className="rounded-lg border border-neutral-800 focus:ring-2 focus:ring-teal-500  w-full relative z-10 mt-4  bg-neutral-950 placeholder:text-neutral-700"
         />
       </div>
-      <BackgroundBeams />
+      <BackgroundBeams className="z-[-1]"/>
     </div>
   );
 }
