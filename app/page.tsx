@@ -1,11 +1,9 @@
-import { Card, CardTitle } from "@/components/ui/card";
+import {  CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import MaxWidthWrapper from "@/components/ui/common/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
-import { CardSpotlight } from "@/components/ui/card-spotlight";
-
 export default function Home() {
   return (
     <main className="relative">
@@ -48,8 +46,25 @@ function SampleCard() {
       <h2 className="text-3xl animate-fade-in font-normal text-center mb-8 sm:text-2xl md:text-3xl">
       Why choose us?
       </h2>
-      <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-8">
-        
+      <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8">
+        <div className="p-7 rounded-lg bg-emerald-600/30">
+          <CardTitle className="text-lg font-bold mb-2">Comprehensive Management</CardTitle>
+          <p className="text-sm  ">
+          Track all your crypto assets in one place with real-time updates and insights.
+          </p>
+        </div>
+        <div className="p-7 rounded-lg bg-emerald-600/30">
+          <CardTitle className="text-lg font-bold mb-2">Zakat Calculation Made Easy</CardTitle>
+          <p className="text-sm">
+          Automatically calculate your Zakat obligations based on your crypto holdings and transactions.
+          </p>
+        </div>
+        <div className="p-7 rounded-lg bg-emerald-600/30">
+          <CardTitle className="text-lg font-bold mb-2">Regulatory Compliance</CardTitle>
+          <p className="text-sm ">
+          Stay compliant with Saudi financial regulations through our integrated compliance tools and resources.
+          </p>
+        </div>
       </div>
     </div>
   );
