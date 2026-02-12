@@ -42,31 +42,34 @@ function HeroSection() {
 
 function SampleCard() {
   return (
-    <div className="py-5">
+    <div className=" pb-36">
       <h2 className="text-3xl animate-fade-in font-normal text-center mb-8 sm:text-2xl md:text-3xl">
       Why choose us?
       </h2>
-      <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8">
-        <div className="p-7 rounded-lg bg-emerald-600/30">
+      <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8 ">
+        <div className="p-6 rounded-lg bg-emerald-500">
           <CardTitle className="text-lg font-bold mb-2">Comprehensive Management</CardTitle>
-          <p className="text-sm  ">
+          <p className="text-sm">
           Track all your crypto assets in one place with real-time updates and insights.
           </p>
         </div>
-        <div className="p-7 rounded-lg bg-emerald-600/30">
+        <div className="p-6 rounded-lg bg-emerald-500">
           <CardTitle className="text-lg font-bold mb-2">Zakat Calculation Made Easy</CardTitle>
           <p className="text-sm">
           Automatically calculate your Zakat obligations based on your crypto holdings and transactions.
           </p>
         </div>
-        <div className="p-7 rounded-lg bg-emerald-600/30">
+        <div className="p-6 rounded-lg bg-emerald-500">
           <CardTitle className="text-lg font-bold mb-2">Regulatory Compliance</CardTitle>
-          <p className="text-sm ">
+          <p className="text-sm">
           Stay compliant with Saudi financial regulations through our integrated compliance tools and resources.
           </p>
         </div>
       </div>
     </div>
+
+
+
   );
 }
 

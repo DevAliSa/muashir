@@ -7,9 +7,9 @@ import { buttonVariants } from '../button';
 export const Navbar = () => {
     const user = false
     return (
-    <header>
+    <header className="fixed top-0 z-50 w-full   backdrop-blur-md ">
         <MaxWidthWrapper>
-            <div className='flex justify-between items-center h-16'>
+            <div className=' flex justify-between items-center h-16'>
                 <Link href="/" className='flex items-center space-x-2'>
                     <samp className="text-xl font-bold text-primary">
                     Muashir
