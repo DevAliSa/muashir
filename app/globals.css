@@ -132,15 +132,16 @@
 }
 
   .card-wrapper::before  {
+    
     background: conic-gradient(
-      rgba(63, 253, 79, 0.719) 0deg,
+      rgb(0, 255, 21) 0deg,
     transparent 80deg
   );
-  @apply absolute h-[150%] w-[150%] left-[-25%] top-[-25%] content-[''] animate-spin animation-duration-2000;
+  @apply absolute h-[200%] w-[200%] left-[-50%] top-[-50%] content-[''] animate-spin animation-duration-2000;
 }
 
 .card-content {
-  @apply absolute w-[calc(100%-10px)] h-[calc(100%-10px)] top-[5px] left-[5px] bg-gradient-to-b from-emerald-300 to-emerald-700 rounded-2xl;
+  @apply  absolute w-[calc(100%-4px)] h-[calc(100%-4px)] top-[2px] left-[2px] bg-gradient-to-b from-emerald-300 to-emerald-700 rounded-2xl ;
 
 }
 

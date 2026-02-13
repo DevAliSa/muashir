@@ -4,6 +4,8 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import MaxWidthWrapper from "@/components/ui/common/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
+import { FlickeringGrid } from "@/components/ui/flickering-grid";
+
 export default function Home() {
   return (
     <main className="relative">
@@ -48,17 +50,22 @@ function SampleCard() {
         <div className="card-wrapper h-38 ">
           <CardTitle className="card-content p-4 text-lg font-bold mb-2">Comprehensive Management
           <p className=" font-normal text-sm">Track all your crypto assets in one place with real-time updates and insights.</p></CardTitle>
+          <FlickeringGrid className="relative inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"squareSize={4} gridGap={6} color="#00ff15" maxOpacity={0.5} flickerChance={0.1} height={800} width={800}/>
         </div>
 
         <div className="card-wrapper h-38 ">
           <CardTitle className="card-content p-4 text-lg font-bold mb-2">Zakat Calculation Made Easy 
           <p className=" font-normal text-sm">Automatically calculate your Zakat obligations based on your crypto holdings and transactions.</p></CardTitle>
+          <FlickeringGrid className="relative inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"squareSize={4} gridGap={6} color="#00ff15" maxOpacity={0.5} flickerChance={0.1} height={800} width={800}/>
         </div>
 
+      
+    
 
         <div className="card-wrapper h-38 ">
           <CardTitle className="card-content p-4 text-lg font-bold mb-2">Regulatory Compliance
           <p className=" font-normal text-sm">Stay compliant with Saudi financial regulations through our integrated compliance tools and resources.</p></CardTitle>
+          <FlickeringGrid className="relative inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_center,white,transparent)]"squareSize={4} gridGap={6} color="#00ff15" maxOpacity={0.5} flickerChance={0.1} height={800} width={800}/>
         </div>
         
       </div>
@@ -70,39 +77,9 @@ function SampleCard() {
 }
 
 
-/*function SampleCard() {
-  return (
-    <div className=" pb-36">
-      <h2 className="text-3xl animate-fade-in font-normal text-center mb-8 sm:text-2xl md:text-3xl">
-      Why choose us?
-      </h2>
-      <div className="grid animate-fade-in grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8 ">
-        <div className="p-6 rounded-lg bg-emerald-500">
-          <CardTitle className="text-lg font-bold mb-2">Comprehensive Management</CardTitle>
-          <p className="text-sm">
-          Track all your crypto assets in one place with real-time updates and insights.
-          </p>
-        </div>
-        <div className="p-6 rounded-lg bg-emerald-500">
-          <CardTitle className="text-lg font-bold mb-2">Zakat Calculation Made Easy</CardTitle>
-          <p className="text-sm">
-          Automatically calculate your Zakat obligations based on your crypto holdings and transactions.
-          </p>
-        </div>
-        <div className="p-6 rounded-lg bg-emerald-500">
-          <CardTitle className="text-lg font-bold mb-2">Regulatory Compliance</CardTitle>
-          <p className="text-sm">
-          Stay compliant with Saudi financial regulations through our integrated compliance tools and resources.
-          </p>
-        </div>
-      </div>
-    </div>
 
+    
 
-
-  );
-}
-*/
 
 
 
