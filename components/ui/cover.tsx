@@ -24,7 +24,7 @@ export const Cover = ({
       setContainerWidth(ref.current?.clientWidth ?? 0);
 
       const height = ref.current?.clientHeight ?? 0;
-      const numberOfBeams = Math.floor(height / 10); // Adjust the divisor to control the spacing
+      const numberOfBeams = Math.floor(height / 10); 
       const positions = Array.from(
         { length: numberOfBeams },
         (_, i) => (i + 1) * (height / (numberOfBeams + 1))
@@ -80,7 +80,7 @@ export const Cover = ({
                 maxSize={1}
                 particleDensity={500}
                 className="w-full h-full"
-                particleColor="#FFFFFF"
+                particleColor="#5ee9b5"
               />
             </motion.div>
           </motion.div>
@@ -131,7 +131,7 @@ export const Cover = ({
           },
         }}
         className={cn(
-          "dark:text-white inline-block text-emerald-500 relative z-20  transition duration-200",
+          "dark:text-emerald-500 inline-block text-emerald-500 relative z-20  transition duration-200",
           className
         )}
       >
