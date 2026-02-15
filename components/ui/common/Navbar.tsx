@@ -1,6 +1,6 @@
 import React from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
-import {  Sparkle } from 'lucide-react'
+import {  Icon, Sparkle, Sun } from 'lucide-react'
 import Link from 'next/link';
 import { buttonVariants } from '../button';
 
@@ -11,19 +11,26 @@ export const Navbar = () => {
         <MaxWidthWrapper>
             <div className=' flex justify-between items-center h-16'>
                 <Link href="/" className='flex items-center space-x-2'>
-                    <samp className="text-xl font-bold text-primary">
+                    <div className="text-xl font-bold text-primary">
                     Muashir
-                    </samp>
+                    </div>
                 </Link> 
                 <nav className="hidden md:flex items-center space-x-4">
                 {!user ? (
                     <>
-                    <Link href="/login" className={buttonVariants({variant: "secondary"})}>
+                        <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})}>
+                            Ar
+                        </Link>
+                        <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})}>
+                            <Sun size={18} />
+                        </Link>
+                        <Link href="/login" className={buttonVariants({variant: "secondary"})}>
                         Login
                         </Link>
                         <Link href="/register" className={buttonVariants()}>
                             Sign up
                         </Link>
+                        
                         </>
                     ):( 
                     <div className="flex items-center gap-2">
