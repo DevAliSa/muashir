@@ -1,10 +1,12 @@
-import React from 'react'
+"use client"
 import MaxWidthWrapper from './MaxWidthWrapper'
-import {  Icon, Sparkle, Sun } from 'lucide-react'
+import {  Moon, Sun } from 'lucide-react'
 import Link from 'next/link';
-import { buttonVariants } from '../button';
+import { Button, buttonVariants } from '../button';
+import { useTheme } from 'next-themes';
 
 export const Navbar = () => {
+    const {theme, setTheme} = useTheme();
     const user = false
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
@@ -18,12 +20,14 @@ export const Navbar = () => {
                 <nav className="hidden md:flex items-center space-x-4">
                 {!user ? (
                     <>
-                        <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})}>
+                        <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})} >
                             Ar
                         </Link>
-                        <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})}>
-                            <Sun size={18} />
-                        </Link>
+                        <Button variant="secondary" size="icon" className="rounded-full"
+                            onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                            <Moon size={18} className="rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
+                            <Sun size={18} className="absolute rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
+                        </Button>
                         <Link href="/login" className={buttonVariants({variant: "secondary"})}>
                         Login
                         </Link>

@@ -5,6 +5,7 @@ import {  buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Particles } from "@/components/ui/particles"
+import Navbar from "@/components/ui/common/Navbar";
 
 
 export default function Home() {
@@ -75,7 +76,6 @@ function SampleCard() {
           <p className=" font-normal text-sm dark:text-neutral-900">Stay compliant with Saudi financial regulations through our integrated compliance tools and resources.</p></CardTitle>
           <FlickeringGrid className="relative inset-0 z-0 mask-[radial-gradient(450px_circle_at_center,white,transparent)]"squareSize={4} gridGap={6} color="#00ff15" maxOpacity={0.5} flickerChance={1.1} height={800} width={800}/>
         </div>
-  
       </div>
     </div>
   );
