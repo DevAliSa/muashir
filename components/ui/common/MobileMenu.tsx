@@ -1,26 +1,27 @@
-"use client"
-import MaxWidthWrapper from './MaxWidthWrapper'
-import {  Moon, Sun } from 'lucide-react'
+"use client";
+import { useState } from "react";
+import { Button, buttonVariants } from "../button";
+import { Menu } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Moon , Sun } from "lucide-react";
 import Link from 'next/link';
-import { Button, buttonVariants } from '../button';
-import { useTheme } from 'next-themes';
-import MobileMenu from './MobileMenu';
 
-export const Navbar = () => {
-    const {theme, setTheme} = useTheme();
-    const user = false
+
+const MobileMenu = ({ user }: { user: boolean }) => {
+        const {theme, setTheme} = useTheme();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-    <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
-        <MaxWidthWrapper>
-            <div className=' flex justify-between items-center h-16'>
-                <Link href="/" className='flex items-center space-x-2'>
-                    <div className="text-xl font-bold text-primary">
-                    Muashir
-                    </div>
-                </Link> 
-                <MobileMenu user={user} />
-                <nav className="hidden md:flex items-center space-x-4">
-                {!user ? (
+    <div className="md:hidden">
+        <Menu onClick={() => setIsMenuOpen(!isMenuOpen)} />
+            {isMenuOpen && (
+                <nav className="absolute left-0 right5-0 top-16 border-b border-gray-200 shadow-lg">
+                    <div className ="flex flex-col p-4 space-y-2">
+                        <Link href={buttonVariants({
+                            variant: "ghost",
+                        })} 
+                        >
+                        </Link>
+                            {!user ? (
                     <>
                         <Link href="/" className={buttonVariants({variant: "secondary", size: "icon"})} >
                             Ar
@@ -52,10 +53,11 @@ export const Navbar = () => {
                         </div>
                     )
                 }
+                    </div>
                 </nav>
-            </div>
-        </MaxWidthWrapper>
-    </header>
-    )
-}
-export default Navbar
+            )}
+    </div>
+    );
+};
+
+export default MobileMenu;
