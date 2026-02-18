@@ -6,6 +6,7 @@ import { Button, buttonVariants } from '../button';
 import { useTheme } from 'next-themes';
 import MobileMenu from './MobileMenu';
 
+
 export const Navbar = () => {
     const {theme, setTheme} = useTheme();
     const user = false
@@ -14,6 +15,7 @@ export const Navbar = () => {
         <MaxWidthWrapper>
             <div className=' flex justify-between items-center h-16'>
                 <Link href="/" className='flex items-center space-x-2'>
+                    <img src="/logo.svg" alt="logo" className="h-6 w-6" />
                     <div className="text-xl font-bold text-primary">
                     Muashir
                     </div>
