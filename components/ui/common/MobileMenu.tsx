@@ -14,8 +14,8 @@ const MobileMenu = ({ user }: { user: boolean }) => {
     <div className="md:hidden">
         <Menu onClick={() => setIsMenuOpen(!isMenuOpen)} />
             {isMenuOpen && (
-                <nav className="absolute left-0 right5-0 top-16 border-b border-gray-200 shadow-lg">
-                    <div className ="flex flex-col p-4 space-y-2">
+                <nav className="absolute left-0 right-0 top-16 p-4  animate-fade-in bg-white/80 dark:bg-black/90">
+                    <div className ="flex flex-col p-4 space-y-2 ">
                         <Link href={buttonVariants({
                             variant: "ghost",
                         })} 
@@ -49,7 +49,9 @@ const MobileMenu = ({ user }: { user: boolean }) => {
                             <Link className={buttonVariants()} href={"/create"}>
                                 Create
                             </Link>
-                            
+                            <Link href={"/signout"} className={buttonVariants({variant: "ghost",})}>
+                                Sign out
+                            </Link>
                         </div>
                     )
                 }
