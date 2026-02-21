@@ -5,7 +5,6 @@ import {  buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Particles } from "@/components/ui/particles"
-import Navbar from "@/components/ui/common/Navbar";
 
 
 export default function Home() {
