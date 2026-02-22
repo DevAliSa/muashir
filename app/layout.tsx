@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer} from "@/components/ui/common/Footer";
 import { ThemeProvider } from "next-themes";
+import { DirectionProvider } from "@/components.json";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,10 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html  lang="ar" dir="rtl" lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        
       >
+        <DirectionProvider direction="rtl">{children}</DirectionProvider>
         <ThemeProvider attribute="class" enableSystem defaultTheme="system">
         <Navbar />
         {children}
