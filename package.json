@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-direction": "^1.1.1",
     "@react-three/fiber": "^10.0.0-alpha.2",
     "@tailwindcss/cli": "^4.1.18",
     "@tsparticles/engine": "^3.9.1",
