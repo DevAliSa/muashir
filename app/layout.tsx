@@ -1,11 +1,10 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer} from "@/components/ui/common/Footer";
-import { ThemeProvider } from "next-themes";
-import { DirectionProvider } from "@radix-ui/react-direction";
-
+import { Providers } from "@/components/ui/providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,13 +29,13 @@ export default function RootLayout({
     <html  lang="ar" dir="rtl"  suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
-            <DirectionProvider dir="rtl">
-              <Navbar />
-              {children}
-              <Footer />
-            </DirectionProvider>
-        </ThemeProvider>
+            
+              <Providers>
+                <Navbar />
+                {children}
+                <Footer />
+              </Providers>
+            
       </body>
     </html>
   );
