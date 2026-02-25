@@ -22,15 +22,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
+
+const dir = lang === "ar" ? "rtl" : "ltr";
+
   return (
-    <html  lang="ar" dir="rtl"  suppressHydrationWarning>
+    <html  lang={lang} dir={dir}  suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            
-              <Providers>
+              <Providers dir={dir}>
                 <Navbar />
                 {children}
                 <Footer />
