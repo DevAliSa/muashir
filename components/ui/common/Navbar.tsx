@@ -14,7 +14,12 @@ export const Navbar = () => {
     const router = useRouter();
     const user = false;
     
-    
+    const toggleLocale = () => {
+        const currentLang = pathname.split("/")[1];
+        const newLang = currentLang === "en" ? "ar" : "en";
+        const newPath = pathname.replace(`/${currentLang}`, `/${newLang}`);
+        router.push(newPath);
+    };
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
         <MaxWidthWrapper>
