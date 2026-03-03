@@ -14,12 +14,7 @@ export const Navbar = () => {
     const router = useRouter();
     const user = false;
     
-    const toggleLocale = () => {
-        const currentLang = pathname.split("/")[1];
-        const newLang = currentLang === "en" ? "ar" : "en";
-        const newPath = pathname.replace(`/${currentLang}`, `/${newLang}`);
-        router.push(newPath);
-    };
+    
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
         <MaxWidthWrapper>
@@ -42,7 +37,6 @@ export const Navbar = () => {
                             <Moon size={18} className="rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
                             <Sun size={18} className="absolute rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
                         </Button>
-
                         {!user ? (
                             <div className="flex items-center gap-2">
                                 <Link href="/login" className={buttonVariants({variant: "secondary"})}>
