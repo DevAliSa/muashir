@@ -1,10 +1,9 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer} from "@/components/ui/common/Footer";
-import { Providers } from "@/components/ui/providers";
+import { NextIntlClientProvider } from "next-intl";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,12 +33,11 @@ const dir = lang === "ar" ? "rtl" : "ltr";
     <html  lang={lang} dir={dir}  suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-              <Providers dir={dir}>
+              <NextIntlClientProvider>
                 <Navbar />
                 {children}
                 <Footer />
-              </Providers>
-            
+                </NextIntlClientProvider>
       </body>
     </html>
   );
