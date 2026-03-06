@@ -5,21 +5,11 @@ import Link from 'next/link';
 import { Button, buttonVariants } from '../button';
 import { useTheme } from 'next-themes';
 import MobileMenu from './MobileMenu';
-import { usePathname, useRouter } from 'next/navigation';
 
 
 export const Navbar = () => {
     const {theme, setTheme} = useTheme();
-    const pathname = usePathname();
-    const router = useRouter();
     const user = false;
-    
-    const toggleLocale = () => {
-        const currentLang = pathname.split("/")[1];
-        const newLang = currentLang === "en" ? "ar" : "en";
-        const newPath = pathname.replace(`/${currentLang}`, `/${newLang}`);
-        router.push(newPath);
-    };
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
         <MaxWidthWrapper>
@@ -34,9 +24,9 @@ export const Navbar = () => {
                     <MobileMenu user={user} />
                 </div>
                 <nav className="hidden md:flex items-center gap-4">
-                        <Button  variant="secondary" size="icon"onClick={toggleLocale}>
-                            {pathname.startsWith('/ar') ? 'En' : 'Ar'}
-                        </Button>
+                        <button className={buttonVariants({variant: "secondary", size: "icon"})} >
+                            Ar
+                        </button>
                         <Button variant="secondary" size="icon" className="rounded-full"
                             onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
                             <Moon size={18} className="rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />

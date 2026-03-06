@@ -2,7 +2,7 @@
 import React, { useEffect, useId, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 import { SparklesCore } from "@/components/ui/sparkles";
 
 export const Cover = ({
@@ -24,10 +24,10 @@ export const Cover = ({
       setContainerWidth(ref.current?.clientWidth ?? 0);
 
       const height = ref.current?.clientHeight ?? 0;
-      const numberOfBeams = Math.floor(height / 10); 
+      const numberOfBeams = Math.floor(height / 10);
       const positions = Array.from(
         { length: numberOfBeams },
-        (_, i) => (i + 1) * (height / (numberOfBeams + 1))
+        (_, i) => (i + 1) * (height / (numberOfBeams + 1)),
       );
       setBeamPositions(positions);
     }
@@ -132,7 +132,7 @@ export const Cover = ({
         }}
         className={cn(
           "dark:text-emerald-500 inline-block text-emerald-500 relative z-20  transition duration-200",
-          className
+          className,
         )}
       >
         {children}
@@ -173,8 +173,9 @@ export const Beam = ({
     >
       <motion.path
         d={`M0 0.5H${width ?? "600"}`}
-        stroke={`url(#svgGradient-${id})`}/>
-      </motion.svg>
+        stroke={`url(#svgGradient-${id})`}
+      />
+    </motion.svg>
   );
 };
 
@@ -189,7 +190,7 @@ export const CircleIcon = ({
     <div
       className={cn(
         `pointer-events-none animate-pulse group-hover/cover:hidden group-hover/cover:opacity-100 group h-2 w-2 rounded-full bg-neutral-600 dark:bg-white opacity-20 group-hover/cover:bg-white`,
-        className
+        className,
       )}
     ></div>
   );
