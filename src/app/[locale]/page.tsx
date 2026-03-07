@@ -6,9 +6,19 @@ import { Cover } from "@/components/ui/cover";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Particles } from "@/components/ui/particles";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 
 
-export default function Home() {
+export default async function Home({
+  params,
+}:{
+
+  params: Promise<{ locale: string }>;
+}){
+  const { locale } = await params ;
+
+  setRequestLocale(locale);
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <MaxWidthWrapper className="relative z-10">

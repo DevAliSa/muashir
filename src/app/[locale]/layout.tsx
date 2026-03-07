@@ -4,8 +4,10 @@ import "./globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer} from "@/components/ui/common/Footer";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
+import { routing } from "@/src/i18n/routing";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +33,12 @@ export default async function RootLayout({
 }>) {
 
   const { locale } = await params;
-  console.log("current locale",locale)
+
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
