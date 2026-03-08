@@ -47,7 +47,7 @@ function HeroSection() {
       </p>
       <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
         <Link href="/" className={buttonVariants({ variant: "default", size: "lg" })}>
-        Get Started{" "}
+        {t("Buttons.Get Started")}
         </Link>
       </div>
     </div>
@@ -61,7 +61,7 @@ function SampleCard() {
     <div className=" pb-36 ">
       
       <h2 className="text-3xl animate-fade-in font-normal text-center mb-8 sm:text-2xl md:text-3xl">
-      Why choose us?
+      {t("Why choose us?.title")}
       </h2>
       <div className="grid animate-fade-in grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 mx-8 ">
 
