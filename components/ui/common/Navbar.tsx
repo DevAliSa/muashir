@@ -28,7 +28,7 @@ export const Navbar = () => {
         <div className=" flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
             <img src="/logo.svg" alt="logo" className="h-8 w-8" />
-            <div className="text-xl font-bold text-primary">Muashir</div>
+            <div className="text-xl font-bold  text-primary">Muashir</div>
             </Link>
             <div className="md:hidden">
             <MobileMenu user={user} />
@@ -43,7 +43,7 @@ export const Navbar = () => {
             <Button
                 variant="secondary"
                 size="icon"
-                className="rounded-full"
+                className="rounded-full font-masmakBHD"
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
                 <Moon
                 size={18}
@@ -55,7 +55,7 @@ export const Navbar = () => {
                 />
             </Button>
             {!user ? (
-                <div className="flex items-center gap-4">
+                <div className="flex items-center font-masmakBHD gap-4">
                 <Link
                     href="/login"
                     className={buttonVariants({ variant: "secondary" })}>

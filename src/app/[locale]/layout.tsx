@@ -1,6 +1,6 @@
-import LocalFont from "next/font/local";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import LocalFont from "next/font/local";
+import { Geist} from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer} from "@/components/ui/common/Footer";
@@ -15,13 +15,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-
-const masmakBHD = LocalFonta({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const Watad = LocalFont({
+  src: [{
+    path: '../../../public/fonts/Watad.otf'
+  },],
+  variable: "--font-Watad",
+  
 });
-
-
 
 export const metadata: Metadata = {
   title: "Muashir",
@@ -51,7 +51,7 @@ const dir = locale === "ar" ? "rtl" : "ltr";
   return (
     <html  lang={locale} dir={dir}  suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${Watad.variable} font-sans rtl:font-Watad antialiased`}>
             <ThemeProvider attribute="class" enableSystem defaultTheme="system">
               <NextIntlClientProvider messages={messages}>
                 <Navbar />
