@@ -10,11 +10,6 @@ import { ThemeProvider } from "next-themes";
 import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const Watad = LocalFont({
   src: [{
     path: '../../../public/fonts/Watad.otf'
