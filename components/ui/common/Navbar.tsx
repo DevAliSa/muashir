@@ -1,13 +1,11 @@
 "use client";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Moon, Sun } from "lucide-react";
-import Link from "next/link";
 import { Button, buttonVariants } from "../button";
 import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
-import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "@/src/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, useRouter, usePathname } from "@/src/i18n/navigation";
 
 
 export const Navbar = () => {
@@ -19,8 +17,17 @@ export const Navbar = () => {
     const t = useTranslations();
 
     const handleLanguageSwitch = () => {
-    const newLocale = locale === "en" ? "ar" : "en";
-    router.push(pathname, { locale: newLocale });
+      const newLocale = locale === "en" ? "ar" : "en";
+
+      const basePath = pathname.replace(/^\/(ar|en)/, "") || "/";
+      const targetPath =
+        newLocale === "ar"
+          ? basePath
+          : basePath === "/"
+          ? "/en"
+          : `/en${basePath}`;
+
+      router.push(targetPath);
     };
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
