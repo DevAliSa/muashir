@@ -1,5 +1,5 @@
 import {  CardTitle } from "@/components/ui/card";
-import Link from "next/link";
+import { Link } from "@/src/i18n/navigation";
 import MaxWidthWrapper from "@/components/ui/common/MaxWidthWrapper";
 import {  buttonVariants } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
@@ -13,9 +13,10 @@ export default async function Home({
   params,
 }:{
 
+  
   params: Promise<{ locale: string }>;
 }){
-  const { locale } = await params ;
+  const { locale } = await params;
 
   setRequestLocale(locale);
 

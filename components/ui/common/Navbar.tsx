@@ -4,8 +4,9 @@ import { Moon, Sun } from "lucide-react";
 import { Button, buttonVariants } from "../button";
 import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
-import { useLocale, useTranslations } from "next-intl";
-import { Link, useRouter, usePathname } from "@/src/i18n/navigation";
+import { useLocale } from "next-intl";
+import { Link , useRouter, usePathname } from "@/src/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 
 export const Navbar = () => {
@@ -17,17 +18,8 @@ export const Navbar = () => {
     const t = useTranslations();
 
     const handleLanguageSwitch = () => {
-      const newLocale = locale === "en" ? "ar" : "en";
-
-      const basePath = pathname.replace(/^\/(ar|en)/, "") || "/";
-      const targetPath =
-        newLocale === "ar"
-          ? basePath
-          : basePath === "/"
-          ? "/en"
-          : `/en${basePath}`;
-
-      router.push(targetPath);
+    const newLocale = locale === "en" ? "ar" : "en";
+    router.replace(pathname, { locale: newLocale });
     };
     return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
