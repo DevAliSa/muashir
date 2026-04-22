@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import LocalFont from "next/font/local";
 import { Geist } from "next/font/google";
-import "@/src/app/globals.css";
+import "../globals.css";
 import { Navbar } from "@/components/ui/common/Navbar";
 import { Footer } from "@/components/ui/common/Footer";
 import { NextIntlClientProvider } from "next-intl";

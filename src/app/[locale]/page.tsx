@@ -47,7 +47,7 @@ function HeroSection() {
         {t("HomePage.description")}
       </p>
       <div className="mt-10 flex flex-col  sm:flex-row gap-4 justify-center">
-        <Link href="/" className={buttonVariants({ variant: "default", size: "lg" })}>
+        <Link href="/dashboard" className={buttonVariants({ variant: "default", size: "lg" })}>
         {t("Buttons.Get Started")}
         </Link>
       </div>

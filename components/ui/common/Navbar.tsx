@@ -26,9 +26,14 @@ export const Navbar = () => {
         <MaxWidthWrapper>
         <div className=" flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.svg" alt="logo" className="h-8 w-8" />
-            <div className="text-xl font-bold  text-primary">Muashir</div>
+            <img src="/logo.svg" alt="logo" className="h-10 w-10" />
+            <div className="  text-center mx-1  animate-fade-in ">
+                <div className="font-bold text-sm text-primary">مــــؤشـــــر</div>
+                <div className=" font-bold text-sm  text-primary">Muashir</div>
+            </div>
             </Link>
+
+
             <div className="md:hidden">
             <MobileMenu user={user} />
             </div>
