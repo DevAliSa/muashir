@@ -5,12 +5,55 @@ import { setRequestLocale } from "next-intl/server";
 import { CardTitle } from "@/components/ui/card";
 import DataTable from "@/components/ui/DataTable";
 import { header } from "framer-motion/client";
+import Link from "next/link";
+import { TrendingDown, TrendingUp } from "lucide-react";
+
 
 export default async function DashboardPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+
+
+  const columns: DataTableColumn<TrendingCoin>[] =[
+    { header: 'Name',
+      cellClassName: 'name-cell',
+      cell: (coin) => {
+        const item = coin.item;
+
+        return(
+          <Link href={`/coins/${item.id}`}>
+            <Image src={item.large} alt={item.name} width={36} height={36} />
+            <p>{item.name}</p>
+          </Link>
+        )
+      },
+    },
+    {
+      header: '24h Change',
+      cellClassName: 'change-cell',
+      cell: (coin) => {
+        const item = coin.item;
+        const isTrending = item.price_change_percentage_24h;
+        .usd > 0;
+      
+        return (
+          <div className={cn('price-change', isTrendingUp ? 'text-green-500' : 'text-red-500')}>
+            <p>
+              {isTrendingUp ? (
+                <TrendingUp width={16} height={16}/>
+              ) :
+                <TrendingDown width={16} height={16}/>
+                
+              }
+            </p>
+        )
+      }
+    }
+    }
+  ]
+
   const { locale } = await params;
   setRequestLocale(locale);
   return (

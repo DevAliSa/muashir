@@ -6,9 +6,9 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/table"
-  import { cn } from "./utils";
-  const DataTable = <T,>({columns, data, rowKey, tableClassName, headerRowClassName, headrCellClassName, bodyRowClassname, bodyCellClassName, headerClassName}: DataTableProps<T>) => {
+    } from "@/components/ui/table"
+    import { cn } from "./utils";
+    const DataTable = <T,>({columns, data, rowKey, tableClassName, headerRowClassName, headrCellClassName, bodyRowClassname, bodyCellClassName, headerClassName}: DataTableProps<T>) => {
     return (
         <Table className={cn('custom-scrollbar', tableClassName)}>
             <TableHeader className={headerClassName}>
@@ -22,9 +22,9 @@ import {
             </TableHeader>
             <TableBody>
                 {data.map((row, rowIndex) => (
-                    <TableRow key={rowKey(row, rowIndex)} className={cn('hover:bg-dark-100/50', bodyRowClassname)}>
-                        {columns.map((column, i) => (
-                            <TableCell>
+                    <TableRow key={rowKey(row, rowIndex)} className={cn('overflow-hidden rounded-lg border-b border-purple-100/5 hover:bg-dark-400/30! relative', bodyRowClassname)}>
+                        {columns.map((column, columnIndex) => (
+                            <TableCell key={columnIndex} className={cn('py-4 first:pl-5 last:pr-5')}>
                                 {column.cell(row, rowIndex)}
                             </TableCell>
                         ))}
