@@ -7,6 +7,7 @@ import DataTable from "@/components/ui/DataTable";
 import Link from "next/link";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { cn } from "@/components/ui/utils";
+import { fetcher } from "@/src/lib/coingecko.actions";
 
 // Dummy trending coins data using local image assets
 const trendingCoinsData: TrendingCoin[] = [
@@ -117,7 +118,8 @@ export default async function DashboardPage({
       },
     },
   ];
-
+  const Page = async () => {
+    const coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {dex_pair_format: 'symbol'});
   return (
     <main className="relative min-h-screen overflow-hidden">
       <MaxWidthWrapper className="relative z-10">
@@ -141,4 +143,5 @@ export default async function DashboardPage({
       </MaxWidthWrapper>
     </main>
   );
+}
 }
