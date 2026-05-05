@@ -135,18 +135,12 @@ export default async function DashboardPage({
     },
   ];
   const coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {dex_pair_format: 'symbol'});
-
+  const trendingCoins = await fetcher<{coins: TriendingCoin[]}>('/search/trending', undefined, 300)
   return (
     <main className="relative min-h-screen overflow-hidden">
       <MaxWidthWrapper className="relative z-10">
         <div className="py-20 pt-2 md:py-36 animate-fade-in">
-          <div className="flex items-center gap-2 p-8 rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-            <Image src={coin.image.large} alt={coin.name} width={36} height={36} />
-            <CardTitle className="text-left">
-              <p className="font-light">{coin.name} / {coin.symbol.toUpperCase()}</p>
-              <h1>{formatCurrency(coin.market_data?.current_price?.usd)}</h1>
-            </CardTitle>
-          </div>
+          
           <p className="mt-8 text-lg font-semibold">Trending Coins</p>
           <div className="mt-4">
             <DataTable
