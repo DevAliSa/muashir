@@ -1,30 +1,30 @@
 {
-    "HomePage": {
-        "title1": "Your crypto in compliance ",
-        "title2": "with",
-        "title3": "Saudi standards",
-        "description": "Platform to bridge global crypto data with Saudi financial regulations. Manage your portfolio, calculate Zakat, and ensure full compliance in one unified dashboard "
-    },
+  "HomePage": {
+    "title1": "Your crypto in compliance ",
+    "title2": "with",
+    "title3": "Saudi standards",
+    "description": "Platform to bridge global crypto data with Saudi financial regulations. Manage your portfolio, calculate Zakat, and ensure full compliance in one unified dashboard "
+  },
 
-    "Why choose us?":{
-        "title": "Why choose us?"
-    },
-    
-    "SampleCard": {
-        "title1": "Comprehensive Management",
-        "description1": "Track all your crypto assets in one place with real-time updates and insights.",
-        "title2": "Zakat Calculation Made Easy",
-        "description2": "Automatically calculate your Zakat obligations based on your crypto holdings and transactions.",
-        "title3": "Regulatory Compliance",
-        "description3": "Stay compliant with Saudi financial regulations through our integrated compliance tools and resources."   
-    },
-    "Buttons":{
-        "Login": "Login",
-        "Sign up":"Sign up",
-        "Get Started": "Get Started"
-    },
+  "Why choose us?": {
+    "title": "Why choose us?"
+  },
 
-    "Footer": {
-        "Footer":"All Rights Reserved."
-    }
+  "SampleCard": {
+    "title1": "Comprehensive Management",
+    "description1": "Track all your crypto assets in one place with real-time updates and insights.",
+    "title2": "Zakat Calculation Made Easy",
+    "description2": "Automatically calculate your Zakat obligations based on your crypto holdings and transactions.",
+    "title3": "Regulatory Compliance",
+    "description3": "Stay compliant with Saudi financial regulations through our integrated compliance tools and resources."
+  },
+  "Buttons": {
+    "Login": "Login",
+    "Sign up": "Sign up",
+    "Get Started": "Get Started"
+  },
+
+  "Footer": {
+    "Footer": "All Rights Reserved."
+  }
 }

@@ -1,96 +1,100 @@
-"use client";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Moon, Sun } from "lucide-react";
-import { Button, buttonVariants } from "../button";
-import { useTheme } from "next-themes";
-import MobileMenu from "./MobileMenu";
-import { useLocale } from "next-intl";
-import { Link , useRouter, usePathname } from "@/src/i18n/navigation";
-import { useTranslations } from "next-intl";
-
+'use client';
+import MaxWidthWrapper from './MaxWidthWrapper';
+import { Moon, Sun } from 'lucide-react';
+import { Button, buttonVariants } from '../button';
+import { useTheme } from 'next-themes';
+import MobileMenu from './MobileMenu';
+import { useLocale } from 'next-intl';
+import { Link, useRouter, usePathname } from '@/src/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 export const Navbar = () => {
-    const { theme, setTheme } = useTheme();
-    const locale = useLocale();
-    const router = useRouter();
-    const pathname = usePathname();
-    const user = false;
-    const t = useTranslations();
+  const { theme, setTheme } = useTheme();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const user = false;
+  const t = useTranslations();
 
-    const handleLanguageSwitch = () => {
-    const newLocale = locale === "en" ? "ar" : "en";
+  const handleLanguageSwitch = () => {
+    const newLocale = locale === 'en' ? 'ar' : 'en';
     router.replace(pathname, { locale: newLocale });
-    };
-    return (
+  };
+  return (
     <header className="fixed top-0 z-50 w-full animate-fade-in backdrop-blur-md ">
-        <MaxWidthWrapper>
+      <MaxWidthWrapper>
         <div className=" flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <img src="/logo.svg" alt="logo" className="h-10 w-10" />
             <div className="  text-center mx-1  animate-fade-in ">
-                <div className="font-bold text-sm text-primary">مــــؤشـــــر</div>
-                <div className=" font-bold text-sm  text-primary">Muashir</div>
+              <div className="font-bold text-sm text-primary">
+                مــــؤشـــــر
+              </div>
+              <div className=" font-bold text-sm  text-primary">Muashir</div>
             </div>
-            </Link>
+          </Link>
 
-
-            <div className="md:hidden">
+          <div className="md:hidden">
             <MobileMenu user={user} />
-            </div>
-            <nav className="hidden md:flex items-center gap-4">
+          </div>
+          <nav className="hidden md:flex items-center gap-4">
             <Button
-                variant="secondary"
-                size="icon"
-                onClick={handleLanguageSwitch}>
-                {locale === "en" ? "AR" : "EN"}
+              variant="secondary"
+              size="icon"
+              onClick={handleLanguageSwitch}
+            >
+              {locale === 'en' ? 'AR' : 'EN'}
             </Button>
             <Button
-                variant="secondary"
-                size="icon"
-                className="rounded-full font-masmakBHD"
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                <Moon
+              variant="secondary"
+              size="icon"
+              className="rounded-full font-masmakBHD"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              <Moon
                 size={18}
                 className="rotate-0 scale-100 dark:-rotate-90 dark:scale-0"
-                />
-                <Sun
+              />
+              <Sun
                 size={18}
                 className="absolute rotate-90 scale-0 dark:rotate-0 dark:scale-100"
-                />
+              />
             </Button>
             {!user ? (
-                <div className="flex items-center font-masmakBHD gap-4">
+              <div className="flex items-center font-masmakBHD gap-4">
                 <Link
-                    href="/login"
-                    className={buttonVariants({ variant: "secondary" })}>
-                    {t("Buttons.Login")}
+                  href="/login"
+                  className={buttonVariants({ variant: 'secondary' })}
+                >
+                  {t('Buttons.Login')}
                 </Link>
                 <Link href="/register" className={buttonVariants()}>
-                    {t("Buttons.Sign up")}
+                  {t('Buttons.Sign up')}
                 </Link>
-                </div>
+              </div>
             ) : (
-                <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4">
                 <Link
-                    href="/dashboard"
-                    className={buttonVariants({ variant: "secondary" })}>
-                    Dashboard
-                </Link>
-                <Link className={buttonVariants()} href={"/create"}>
-                    Create
-                </Link>
-                <Link
-                    href={"/signout"}
-                    className={buttonVariants({ variant: "ghost" })}
+                  href="/dashboard"
+                  className={buttonVariants({ variant: 'secondary' })}
                 >
-                    Sign out
+                  Dashboard
                 </Link>
-                </div>
+                <Link className={buttonVariants()} href={'/create'}>
+                  Create
+                </Link>
+                <Link
+                  href={'/signout'}
+                  className={buttonVariants({ variant: 'ghost' })}
+                >
+                  Sign out
+                </Link>
+              </div>
             )}
-            </nav>
+          </nav>
         </div>
-        </MaxWidthWrapper>
+      </MaxWidthWrapper>
     </header>
-    );
+  );
 };
 export default Navbar;

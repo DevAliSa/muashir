@@ -1,19 +1,20 @@
-import {NextConfig} from 'next';
+import { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import { hostname } from 'os';
 
 const nextConfig: NextConfig = {
-    images: {
-        remotePatterns:[
-            {
-                protocol: "https",
-                hostname: "assets.coingecko.com",
-            },{
-                protocol: "https",
-                hostname: "coin-images.coingecko.com",
-            }
-        ]
-    }
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.coingecko.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'coin-images.coingecko.com',
+      },
+    ],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
