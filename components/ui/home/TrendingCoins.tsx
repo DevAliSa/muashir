@@ -10,16 +10,24 @@ import { cn, formatCurrency } from "@/components/ui/utils";
 const TrendingCoins = async () => {
   const trendingCoins = await fetcher<{coins: TriendingCoin[]}>('/search/trending', undefined, 300);
 
-    const columns: DataTableColumn<TrendingCoin>[] = 
+    const columns: DataTableColumn<TrendingCoin>[] = [
+
+      heder: 'Name',
+      cellClassNme: 'name-cell',
+      cell: (coin) => {
+        const item = coin.item;
+      },
+    ];
 
   return (
-    <>
-    <p className="mt-8 text-lg font-semibold">Trending Coins</p>
+    <div id= "trending-coins">
+    <h4 className="mt-8 text-lg font-semibold">Trending Coins</h4>
           <div className="mt-4">
             <DataTable
-              data={trendingCoinsData}
+              data={trendingCoins.coins.slice(0, 6) || []}
               columns={columns}
-              rowKey={(row, index) => `${row.item.id}-${index}`}
+              rowKey={(coin) => coin.item.id}
+              tableClassName='trending-coins-table'
             />
           </div>
     </>
