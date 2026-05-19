@@ -2,6 +2,22 @@ import React from 'react';
 import { fetcher } from '@/src/lib/coingecko.actions';
 import { formatCurrency } from '../utils';
 import { CardTitle } from '../card';
+
+interface CoinDetailsData {
+  id: string;
+  symbol: string;
+  name: string;
+  image: {
+    large: string;
+    thumb?: string;
+    small?: string;
+  };
+  market_data?: {
+    current_price?: {
+      usd?: number;
+    };
+  };
+}
 import Image from 'next/image';
 
 const CoinOverview = async () => {
