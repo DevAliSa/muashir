@@ -64,6 +64,8 @@ const TrendingCoins = async () => {
             columns={columns}
             rowKey={(coin: TrendingCoin) => coin.item.id}
             tableClassName="trending-coins-table"
+            headerClassName='py-3!'
+            bodyCellClassName='py-2!'
           />
         </div>
       </MaxWidthWrapper>
