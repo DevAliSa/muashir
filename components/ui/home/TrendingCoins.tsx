@@ -17,11 +17,28 @@ type TrendingCoinItem = {
 type TrendingCoin = { item: TrendingCoinItem };
 
 const TrendingCoins = async () => {
-  const trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
-    '/search/trending',
-    undefined,
-    300
-  );
+  let trendingCoins: { coins: TrendingCoin[] } | null = null;
+
+  try {
+    trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
+      '/search/trending',
+      undefined,
+      300
+    );
+  } catch (error) {
+    console.error('Failed to fetch trending coins:', error);
+    // Return fallback UI on error
+    return (
+      <div id="trending-coins">
+        <MaxWidthWrapper>
+          <h4 className="mt-8 text-lg font-semibold">Trending Coins</h4>
+          <div className="mt-4 p-4 text-center text-gray-500">
+            Unable to load trending coins at this time
+          </div>
+        </MaxWidthWrapper>
+      </div>
+    );
+  }
 
   const columns = [
     {
@@ -64,8 +81,8 @@ const TrendingCoins = async () => {
             columns={columns}
             rowKey={(coin: TrendingCoin) => coin.item.id}
             tableClassName="trending-coins-table"
-            headerClassName='py-3!'
-            bodyCellClassName='py-2!'
+            headerClassName="py-3!"
+            bodyCellClassName="py-2!"
           />
         </div>
       </MaxWidthWrapper>
