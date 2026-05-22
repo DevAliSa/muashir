@@ -21,12 +21,23 @@ interface CoinDetailsData {
 import Image from 'next/image';
 
 const CoinOverview = async () => {
-  let coin: CoinDetailsData | null = null;
+  let coin;
+  let coinOHLCData;
 
   try {
-    coin = await fetcher<CoinDetailsData>('/coins/bitcoin', {
-      dex_pair_format: 'symbol',
-    });
+    const [coin, coinOHLCData] = await Promise.all([
+      await fetcher<CoinDetailsData>('/coins/bitcoin', {
+        dex_pair_format: 'symbol',
+      }),
+      await fetcher<OHLCData[]>('/coins/bitcoin/ohlc',{
+      vs_currency: 'usd',
+      days: 1,
+      interval: 'houtly',
+      precision: 'full',
+    })
+    ])
+    
+
   } catch (error) {
     console.error('Failed to fetch Bitcoin overview:', error);
     // Return fallback UI on error
