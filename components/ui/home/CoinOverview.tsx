@@ -2,6 +2,9 @@ import React from 'react';
 import { fetcher } from '@/src/lib/coingecko.actions';
 import { formatCurrency } from '../utils';
 import { CardTitle } from '../card';
+import Image from 'next/image';
+import CandlestickChart from '@/components/ui/CandlestickChart';
+import { CoinOverviewFallback } from './fallback';
 
 interface CoinDetailsData {
   id: string;
@@ -18,7 +21,6 @@ interface CoinDetailsData {
     };
   };
 }
-import Image from 'next/image';
 
 const CoinOverview = async () => {
   let coin;
@@ -35,35 +37,15 @@ const CoinOverview = async () => {
       interval: 'houtly',
       precision: 'full',
     })
-    ])
+    ]);
     
+      return (
+        <div id="coin-overiew">
+        <CandlestickChart data={coinOHLCData} coinId="bitcoin">
+          
+        
 
-  } catch (error) {
-    console.error('Failed to fetch Bitcoin overview:', error);
-    // Return fallback UI on error
-    return (
       <div className="flex items-center gap-2 p-8 rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-        <CardTitle className="text-left">
-          <p className="font-light">Bitcoin Overview</p>
-          <h1>Unable to load price</h1>
-        </CardTitle>
-      </div>
-    );
-  }
-
-  if (!coin) {
-    return (
-      <div className="flex items-center gap-2 p-8 rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm">
-        <CardTitle className="text-left">
-          <p className="font-light">Bitcoin Overview</p>
-          <h1>No data available</h1>
-        </CardTitle>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex items-center gap-2 p-8 rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-sm">
       <Image src={coin.image.large} alt={coin.name} width={36} height={36} />
       <CardTitle className="text-left">
         <p className="font-light">
@@ -71,7 +53,16 @@ const CoinOverview = async () => {
         </p>
         <h1>{formatCurrency(coin.market_data?.current_price?.usd)}</h1>
       </CardTitle>
+      </div>
+
+      </CandlestickChart>
     </div>
   );
+
+
+  } catch (error) {
+    console.error('Failed to fetch Bitcoin overview:', error);
+    return <CoinOverviewFallback />;
+  }
 };
 export default CoinOverview;
