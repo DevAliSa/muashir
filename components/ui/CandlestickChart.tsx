@@ -1,5 +1,6 @@
 'use client';
 import type { ReactNode } from 'react';
+import { PERIOD_BUTTONS } from './home/constants';
 
 type CandlestickChartProps = {
   children?: ReactNode;
@@ -26,9 +27,11 @@ const CandlestickChart = ({
 
       <div className="button-group">
         <span className="text-sm mx-2 font-medium text-purple-100/50">Period:</span>
-        <button key="1h" className="config-button" onClick={() => {}} disabled={loading}>
-          1 hour
+        {PERIOD_BUTTONS.map(({ value, label }) => (
+        <button key={value} className="config-button" onClick={() => {}} disabled={loading}>
+          {label}
         </button>
+        ))}
       </div>
     </div>
   );
